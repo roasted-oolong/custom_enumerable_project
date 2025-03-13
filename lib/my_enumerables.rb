@@ -1,11 +1,22 @@
 module Enumerable
   # Your code goes here
-  def example_method_find
-    self.each do |yes|
-      return yes if yield(yes)
+  def my_each_with_index
+    index = 0
+    for item in self
+      yield(item, index)
+      index += 1
     end
-    
-    nil
+
+    self
+  end
+
+  def my_select
+    array = []
+    for item in self
+      array << item if yield(item)
+    end
+
+    array
   end
 end
 
