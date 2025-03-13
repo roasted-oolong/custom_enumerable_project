@@ -34,6 +34,14 @@ module Enumerable
 
     false
   end
+
+  def my_none?
+    for item in self
+      return false if yield(item)
+    end
+
+    true
+  end
 end
 
 
