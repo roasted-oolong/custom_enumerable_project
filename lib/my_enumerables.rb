@@ -42,6 +42,18 @@ module Enumerable
 
     true
   end
+
+  def my_count
+    if block_given?
+      count = 0
+      for item in self
+        count += 1 if yield(item)
+      end
+      count
+    else   
+      self.length
+    end
+  end
 end
 
 
