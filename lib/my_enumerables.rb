@@ -54,6 +54,14 @@ module Enumerable
       self.length
     end
   end
+
+  def my_map
+    array = []
+    for item in self
+      array << yield(item)
+    end
+    array
+  end
 end
 
 
