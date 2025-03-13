@@ -18,6 +18,14 @@ module Enumerable
 
     array
   end
+
+  def my_all?
+    for item in self
+      return false unless yield(item)
+    end
+
+    true
+  end
 end
 
 # You will first have to define my_each
