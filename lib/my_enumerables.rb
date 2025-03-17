@@ -62,6 +62,25 @@ module Enumerable
     end
     array
   end
+
+  def my_inject(initial = nil)
+      # If no initial value is provided, set the accumulator as the first element
+      if initial.nil?
+        accumulator = self.first
+        # Start iteration from the second element
+        self[1..-1].each do |item|
+          accumulator = yield(accumulator, item)
+        end
+      else
+        # If initial value is provided, start from the first element
+        accumulator = initial
+        self.each do |item|
+          accumulator = yield(accumulator, item)
+        end
+      end
+  
+      accumulator
+    end
 end
 
 
